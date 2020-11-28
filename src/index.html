@@ -30,14 +30,16 @@
         <label class="custom-label" for="title">Title</label>
         <input
           type="text"
-          class="form-control"
+          class="form-control title-input"
           id="title"
           aria-describedby="emailHelp"
           placeholder="Enter title"
         />
       </div>
       <div class="form-group">
-        <label class="custom-label" for="exampleFormControlTextarea1">Journal Entry</label>
+        <label class="custom-label" for="exampleFormControlTextarea1"
+          >Journal Entry</label
+        >
         <textarea
           class="form-control"
           id="entry"
@@ -46,7 +48,9 @@
         ></textarea>
       </div>
       <div class="form-group">
-        <label class="custom-label" for="exampleInputPassword1">Today I am grateful for...</label>
+        <label class="custom-label" for="exampleInputPassword1"
+          >Today I am grateful for...</label
+        >
         <input
           type="text"
           class="form-control"
@@ -62,12 +66,10 @@
             type="radio"
             name="exampleRadios"
             id="exampleRadios1"
-            value="option1"
+            value="1"
             checked
           />
-          <label class="form-check-label" for="exampleRadios1">
-            (1) Bad
-          </label>
+          <label class="form-check-label" for="exampleRadios1"> (1) Bad </label>
         </div>
         <div class="form-check form-check-inline">
           <input
@@ -75,7 +77,7 @@
             type="radio"
             name="exampleRadios"
             id="exampleRadios2"
-            value="option2"
+            value="2"
           />
           <label class="form-check-label" for="exampleRadios2">
             (2) Fine
@@ -87,36 +89,36 @@
             type="radio"
             name="exampleRadios"
             id="exampleRadios3"
-            value="option3"
+            value="3"
           />
           <label class="form-check-label" for="exampleRadios3">
-           (3) Good
+            (3) Good
           </label>
         </div>
         <div class="form-check form-check-inline">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="exampleRadios"
-              id="exampleRadios4"
-              value="option4"
-            />
-            <label class="form-check-label" for="exampleRadios4">
-              (4) Great
-            </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="exampleRadios"
-              id="exampleRadios5"
-              value="option5"
-            />
-            <label class="form-check-label" for="exampleRadios5">
-              (5) Amazing
-            </label>
-          </div>
+          <input
+            class="form-check-input"
+            type="radio"
+            name="exampleRadios"
+            id="exampleRadios4"
+            value="4"
+          />
+          <label class="form-check-label" for="exampleRadios4">
+            (4) Great
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="exampleRadios"
+            id="exampleRadios5"
+            value="5"
+          />
+          <label class="form-check-label" for="exampleRadios5">
+            (5) Amazing
+          </label>
+        </div>
       </div>
       <div class="submit-div">
         <button type="submit" class="btn btn-primary custom-submit">
@@ -143,6 +145,7 @@
     </div>
 
     <!-- Optional JavaScript -->
+    <script src="script.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
