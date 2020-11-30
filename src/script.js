@@ -1,20 +1,21 @@
-const entryTitle = document.querySelector("#title").value;
-const entryContent = document.querySelector("#entry").value;
-const gratefulFor = document.querySelector("#gratefulFor").value;
+const entryTitle = document.querySelector("#title");
+const entryContent = document.querySelector("#entry");
+const gratefulFor = document.querySelector("#gratefulFor");
 const submitButton = document.querySelector(".custom-submit");
 const ratingNum = 5;
 
-// const data = {
-//   title: entryTitle,
-//   entry: entryContent,
-//   grateful: gratefulFor,
-//   rating: ratingNum,
-//   date: Date.now,
-// };
+
 
 submitButton.addEventListener("click", (event) => {
   event.preventDefault();
-  console.log(entryTitle);
+  const data = {
+    title: entryTitle.value,
+    entry: entryContent.value,
+    grateful: gratefulFor.value,
+    rating: ratingNum,
+    date: Date.now,
+  };
+  console.log(data);
 
   // fetch("http://localhost:3000/entries", {
   //   method: "POST",
