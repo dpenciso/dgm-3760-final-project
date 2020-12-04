@@ -5,19 +5,18 @@ const submitButton = document.querySelector(".custom-submit");
 const ratingNum = 5;
 
 
-async function submitEntry() {
-  const data = {
+function submitEntry() {
+  const entryInfo = {
     title: entryTitle.value,
     entry: entryContent.value,
     grateful: gratefulFor.value,
-    rating: ratingNum,
-    date: Date.now,
+    rating: ratingNum
   };
-  console.log(data)
-  await fetch('http://localhost:3000/entries', {
+  console.log(entryInfo)
+  fetch('/entries', {
       method: 'POST',
-      headers: { 'Access-Control-Allow-Orgin': 'Content-Type', 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      headers: {'Content-Type': 'application/json' },
+      body: JSON.stringify(entryInfo)
   }).then(response => response.json())
   .then(data => {
       console.log(data)

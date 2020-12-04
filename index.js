@@ -25,13 +25,15 @@ mongoose.connect(
 const Entry = require("./schemas/entries");
 
 app.post("/entries", (req, res) => {
+  console.log(req.body)
+
   Entry.create(
     {
-      title: req.query.title,
-      entry: req.query.entry,
-      grateful: req.query.grateful,
-      rating: req.query.rating,
-      date: req.query.date,
+      title: req.body.title,
+      entry: req.body.entry,
+      grateful: req.body.grateful,
+      rating: req.body.rating,
+      date: req.body.date,
     },
     (err, entries) => {
       if (err) console.log(err);
