@@ -48,7 +48,34 @@ async function renderEntries() {
         <h5 class="card-title">${entry.date.slice(0,10)}</h5>
         <p class="card-text">${entry.entry.slice(0,50)}...</p>
         <h6 class="card-subtitle mb-2 text-muted">Rating: ${entry.rating}</h6>
-        <a href="#" class="card-link">View/Edit</a>
+        <!-- Button trigger modal -->
+
+        <div>
+        <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#exampleModalCenter${entry.date}">
+          View Entry
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter${entry.date}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">${entry.title}</br>(${entry.date.slice(0,10)})</br>${entry.rating}/5</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ${entry.entry}</br></br>Today I am grateful for ${entry.grateful}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>`;
       html += htmlSegment;
