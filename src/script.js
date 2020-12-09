@@ -23,9 +23,7 @@ function submitEntry() {
   })
 }
 
-submitButton.addEventListener("click", (event) => {
-  submitEntry()
-});
+submitButton.addEventListener("click", submitEntry)
 
 async function getEntries() {
   let url = '/entries';
@@ -48,14 +46,11 @@ async function renderEntries() {
         <h5 class="card-title">${entry.date.slice(0,10)}</h5>
         <p class="card-text">${entry.entry.slice(0,50)}...</p>
         <h6 class="card-subtitle mb-2 text-muted">Rating: ${entry.rating}</h6>
-        <!-- Button trigger modal -->
 
-        <div>
         <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#exampleModalCenter${entry.date}">
           View Entry
         </button>
 
-        <!-- Modal -->
         <div class="modal fade" id="exampleModalCenter${entry.date}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -70,8 +65,7 @@ async function renderEntries() {
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
+                <button type="button" class="btn btn-danger" onclick="deleteEntry()">Delete</button>
               </div>
             </div>
           </div>
@@ -87,4 +81,15 @@ async function renderEntries() {
 
 renderEntries();
 
+function thisone() {
+  console.log("working")
+}
 
+function deleteEntry() {
+  return fetch('/entries/:id', {
+      method: 'DELETE',
+  }).then(response => response.json())
+  .catch(error => {
+    console.error('There has been a problem with your fetch operation:', error);
+  });
+}
