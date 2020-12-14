@@ -25,7 +25,7 @@ mongoose.connect(
 const Entry = require("./schemas/entries");
 
 app.post("/entries", (req, res) => {
-  console.log(req.body)
+  console.log(req.body.id)
 
   Entry.create(
     {
@@ -70,14 +70,17 @@ app.put("/entries/:id", (req, res) => {
 });
 
 app.delete("/entries/:id", (req, res) => {
+
+  console.log('HERE IS ID',req.params.id)
+
   Entry.remove(
     {
       _id: req.params.id,
     },
     (err, entries) => {
-      if (err) console.log(handleError(err));
+      if (err) console.log(err);
       Entry.find((err, entries) => {
-        if (err) console.log(handleError(err));
+        if (err) console.log(err);
         res.json(entries);
       });
     }
