@@ -40,9 +40,9 @@ async function renderEntries() {
   let sortedEntries = entries.reverse()
   let html = '';
   sortedEntries.forEach(entry => {
-      let htmlSegment = `<div class="card custom-card" data-entryID=${entry._id} style="width: 18rem;">
+      let htmlSegment = `<div class="card custom-card" data-entryid=${entry._id} style="width: 18rem;">
       <div class="card-body">
-        <h3 class="card-title">${entry._id}${entry.title}</h3>
+        <h3 class="card-title">${entry.title}</h3>
         <h5 class="card-title">${entry.date.slice(0,10)}</h5>
         <p class="card-text">${entry.entry.slice(0,50)}...</p>
         <h6 class="card-subtitle mb-2 text-muted">Rating: ${entry.rating}</h6>
@@ -65,7 +65,6 @@ async function renderEntries() {
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger" onclick="deleteEntry(${entry._id})">Delete</button>
               </div>
             </div>
           </div>
@@ -74,29 +73,34 @@ async function renderEntries() {
     </div>`;
       html += htmlSegment;
   });
-
+  // <button type="button" class="btn btn-danger delete-btn" ">Delete</button>
   let loadedEntries = document.querySelector('.loadedEntries');
   loadedEntries.innerHTML = html;
-  loadedEntries.addEventListener('click', listenForClicksonCards)
+  // loadedEntries.addEventListener('click', listenForClicksonCards)
 }
 
-function listenForClicksonCards(event) {
+// function listenForClicksonCards(event) {
 
-  //do somestuff/
+//   //do somestuff/
 
-  //if it is the delete button
-  //get the cards ID
-  //delete
+//   //if it is the delete button
+//   //get the cards ID
+//   const card = document.querySelector(".custom-card")
+//   const deleteButton = document.querySelector(".delete-btn")
+//   let id = card.dataset.entryID
 
-}
+//   deleteButton.addEventListener("click", deleteEntry(id))
+
+//   //delete
+//   function deleteEntry(id) {
+//     return fetch('/entries/' + id, {
+//         method: 'DELETE',
+//     }).then(response => response.json())
+//     .catch(error => {
+//       console.error('There has been a problem with your fetch operation:', error);
+//     });
+//   }
+
+// }
 
 renderEntries();
-
-function deleteEntry(id) {
-  return fetch('/entries/' + id, {
-      method: 'DELETE',
-  }).then(response => response.json())
-  .catch(error => {
-    console.error('There has been a problem with your fetch operation:', error);
-  });
-}
